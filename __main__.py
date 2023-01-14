@@ -7,8 +7,8 @@ config = ConfigParser()
 config.read('config.ini', encoding="utf-8")
 api_id = int(config['API']['api_id'])
 api_hash = config['API']['api_hash']
-print("api_id =", api_id)
-print("api_hash =", api_hash)
+print("api_id =", "*" * len(str(api_id)))
+print("api_hash =", "*" * len(api_hash))
 
 app = Client("my_account", api_id=api_id, api_hash=api_hash)
 
@@ -39,8 +39,17 @@ def main(client, message):
     if command in get_command('all_id'):
         all_id(message)
     elif command in get_command('blacklist'):
-        blacklist()
-
+        blacklist(message, msg, client, app)
+    elif command in get_command('config'):
+        cfg(message, msg)
+    elif command in get_command('delete_message'):
+        delete_message(message)
+    elif command in get_command('delete_photo'):
+        delete_photo()
+    elif command in get_command('delete_video'):
+        delete_video()
+    elif command in get_command('delete_voice_message'):
+        delete_voice_message()
 
 if __name__ == "__main__":
     print("Hello! Started working...")

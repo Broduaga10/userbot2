@@ -4,7 +4,7 @@ def all_id(message):
     if r is not None:
         reply = True
 
-    result = '🆔 <pre>All ID</pre>\n\n' \
+    result = '<pre>All ID 🆔</pre>\n\n' \
                 f'**Your ID:** `{message.from_user.id}`\n'
     if reply:
         result += f'**User Reply ID:** `{r.from_user.id}`\n'
