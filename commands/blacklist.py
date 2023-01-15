@@ -43,9 +43,9 @@ def blacklist(message, msg, client, app):
             text = ''
         file = open(f"{path}/blacklist/{uid}/messages.txt", "w", encoding="utf-8")
         file.write(f"Text: {text}\n"); file.close()
-        app.send_message(chat_id, f"<a href=\"https://t.me/{user_info.username}\">" \
-                    f"{user_info.username}</a> - added to **blacklist** 🔇", disable_web_page_preview=True)
+        app.send_message(chat_id, f"🔇 <a href=\"https://t.me/{user_info.username}\">" \
+                    f"{user_info.username}</a> - added to **blacklist**", disable_web_page_preview=True)
     else:
         shutil.rmtree(f"{path}/blacklist/{uid}")
-        app.send_message(chat_id, f"<a href=\"https://t.me/{user_info.username}\">" \
-                    f"{user_info.username}</a> - removed from **blacklist** 🔈", disable_web_page_preview=True)
+        app.send_message(chat_id, f"🔈 <a href=\"https://t.me/{user_info.username}\">" \
+                    f"{user_info.username}</a> - removed from **blacklist**", disable_web_page_preview=True)
