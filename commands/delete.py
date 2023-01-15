@@ -1,10 +1,17 @@
 from configparser import ConfigParser
 
 
-def delete(message, msg, app):
+def config(bool):
     config = ConfigParser()
     config.read('config.ini', encoding="utf-8")
-    dtext = config['DATA']['delete_text']
+    if bool:
+        return config['DATA']['path']
+    else:
+        return config['DATA']['delete_text']
+    
+
+def delete(message, msg, app):
+    dtext = config(False)
 
     chat_id = message.chat.id
     user_id = message.from_user.id
