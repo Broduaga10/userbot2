@@ -81,8 +81,9 @@ def trust(message, app):
     file.close()
     comm = ["write", "type", "напиши", "скажи", "ответь", "пиши"]
     if uid in trusted \
-        and message.text.split()[0].lower() in prefix \
-            and message.text.split()[1].lower() in comm:
+        and message.text \
+            and message.text.split()[0].lower() in prefix \
+                and message.text.split()[1].lower() in comm:
             
         try: message.delete()
         except: pass
