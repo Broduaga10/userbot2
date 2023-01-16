@@ -12,8 +12,6 @@ def get_cfg():
 config = get_cfg()
 api_id = int(config['API']['api_id'])
 api_hash = config['API']['api_hash']
-print("api_id =", "*" * len(str(api_id)))
-print("api_hash =", "*" * len(api_hash))
 
 app = Client("my_account", api_id=api_id, api_hash=api_hash)
 
@@ -112,7 +110,7 @@ def main(client, message):
 
     # delete this
     my_func(message, config, app)
-    
+
 
 if __name__ == "__main__":
     print("Hello! Started working...")
