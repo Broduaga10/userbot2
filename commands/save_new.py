@@ -22,7 +22,7 @@ def save_new_message(message):
         message.edit(f"✏️ **Enter the title**")
         return
     elif set(list(name)) & {'\\', '"'}:
-            message.edit(f"⚠️ **Forbidden character in title:**\n\\ or \"")
+            message.edit(f"⚠️ **Forbidden character in title:**\n(\\) or (\")")
             return
     elif set(list(reply.text)) & {'\\', '"'}:
             message.edit(f"⚠️ **Forbidden character in text:**\n(\\) or (\")")
