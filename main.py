@@ -108,9 +108,6 @@ def main(client, message):
     blacklist(message, app)
     trust(message, app)
 
-    # delete this
-    my_func(message, config, app)
-
 
 if __name__ == "__main__":
     print("Hello! Started working...")
