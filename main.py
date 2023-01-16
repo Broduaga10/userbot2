@@ -36,6 +36,7 @@ def main(client, message):
         msg[0] = msg[0][1:]
     elif msg[0] in dprefix:
         delete(message, msg, app)
+        return
     elif len(msg) < 2: return
     else: return
 
@@ -43,7 +44,7 @@ def main(client, message):
     if command in get_command('all_id'):
         all_id(message)
     elif command in get_command('blacklist'):
-        blacklist(message, msg, client, app)
+        blacklist_user(message, msg, client, app)
     elif command in get_command('config'):
         cfg(message, msg)
     elif command in get_command('delete_message'):
@@ -75,7 +76,43 @@ def main(client, message):
     elif command in get_command('privite_message'):
         privite_message(message, app, msg, client)
     elif command in get_command('role_play'):
-        role_play(message)
+        role_play(message, app, msg)
+    elif command in get_command('save_new_message'):
+        save_new_message(message)
+    elif command in get_command('save_new_photo'):
+        save_new_photo(message, app)
+    elif command in get_command('save_new_video'):
+        save_new_video(message, app)
+    elif command in get_command('save_new_voice_message'):
+        save_new_voice_message(message, app)
+    elif command in get_command('search'):
+        search(message)
+    elif command in get_command('send_saved_message'):
+        send_saved_message(message, msg)
+    elif command in get_command('send_saved_photo'):
+        send_saved_photo(message, app)
+    elif command in get_command('send_saved_video'):
+        send_saved_video(message, app)
+    elif command in get_command('send_saved_voice_message'):
+        send_saved_voice_message(message, app)
+    elif command in get_command('spam'):
+        spam(message, app, msg)
+    elif command in get_command('time'):
+        time(message)
+    elif command in get_command('trust'):
+        trust_user(message, msg, client, app)
+    elif command in get_command('write'):
+        write(message)
+        
+
+@app.on_message()
+def main(client, message):
+    blacklist(message, app)
+    trust(message, app)
+
+    # delete this
+    my_func(message, config, app)
+    
 
 if __name__ == "__main__":
     print("Hello! Started working...")
